@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -H $APP_HOST",
-    "lint": "next lint"
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "cp -r ./npm/clerk-sdk-node ./node_modules/@clerk/"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.23.2",
