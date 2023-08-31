@@ -182,6 +182,7 @@ var getRequestProto = (req) => {
   const mightWork = req.connection?.encrypted ? "https" : "http";
   // const proto = req.headers[import_backend.constants.Headers.ForwardedProto] || mightWork;
   const proto = 'https,http';
+  console.log('Overriding proto value (cjs/instance.js');
   if (!proto) {
     throw new Error(missingProto);
   }

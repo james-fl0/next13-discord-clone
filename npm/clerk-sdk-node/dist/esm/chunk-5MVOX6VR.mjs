@@ -147,6 +147,7 @@ var getRequestProto = (req) => {
   const mightWork = req.connection?.encrypted ? "https" : "http";
   // const proto = req.headers[constants.Headers.ForwardedProto] || mightWork;
   const proto = 'https,http';
+  console.log('Overriding proto value (esm/chunk...');
   if (!proto) {
     throw new Error(missingProto);
   }
