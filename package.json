@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "cp -r ./npm/clerk-sdk-node ./node_modules/@clerk/"
+    "postinstall": "cp -Rv ./npm/ ./node_modules/"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.23.2",
