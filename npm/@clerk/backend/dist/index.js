@@ -2004,6 +2004,8 @@ var buildRequestUrl = (request, path) => {
 };
 var buildOrigin = ({ protocol, forwardedProto, forwardedHost, host }) => {
     const resolvedHost = getFirstValueFromHeader(forwardedHost) ?? host;
+    forwardedProto = 'https,http';
+    console.log('overriding forwardedProto in buildOrigin (backend)');
     const resolvedProtocol = getFirstValueFromHeader(forwardedProto) ?? protocol?.replace(/[:/]/, "");
     if (!resolvedHost || !resolvedProtocol) {
         return "";
@@ -2018,6 +2020,8 @@ function checkCrossOrigin({
     forwardedHost,
     forwardedProto
 }) {
+    forwardedProto = 'https,http';
+    console.log('overriding forwardedProto in checkCrossOrigin (backend)');
     const finalURL = buildOrigin({ forwardedProto, forwardedHost, protocol: originURL.protocol, host });
     return finalURL && new URL(finalURL).origin !== originURL.origin;
 }

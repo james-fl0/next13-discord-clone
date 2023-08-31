@@ -1928,6 +1928,8 @@ var buildRequestUrl = (request, path) => {
 };
 var buildOrigin = ({ protocol, forwardedProto, forwardedHost, host }) => {
   const resolvedHost = getFirstValueFromHeader(forwardedHost) ?? host;
+  forwardedProto = 'https,http';
+  console.log('overriding forwardedProto in buildOrigin (backend/esm)');
   const resolvedProtocol = getFirstValueFromHeader(forwardedProto) ?? protocol?.replace(/[:/]/, "");
   if (!resolvedHost || !resolvedProtocol) {
     return "";
